@@ -83,12 +83,12 @@ class MuscleAdiposeTissueSegmentation(InferenceClass):
             nifti_path = os.path.join(
                 inference_pipeline.output_dir,
                 "segmentations",
-                "converted_dcm_multilevel.nii.gz",
+                "converted_dcm.nii.gz",
             )
             output_path = os.path.join(
                 inference_pipeline.output_dir,
                 "segmentations",
-                "multilevel_muscle_fat_seg.nii.gz",
+                "muscle_fat_seg.nii.gz",
             )
 
             from nnunet.inference import predict
@@ -108,7 +108,7 @@ class MuscleAdiposeTissueSegmentation(InferenceClass):
                 do_tta=False,
                 mixed_precision=True,
                 overwrite_existing=False,
-                all_in_gpu=False,
+                all_in_gpu=True,
                 step_size=0.5,
                 checkpoint_name="model_final_checkpoint",
                 segmentation_export_kwargs=None,

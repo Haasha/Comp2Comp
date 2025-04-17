@@ -47,11 +47,11 @@ def MuscleAdiposeTissuePipelineBuilder(args):
             muscle_adipose_tissue.MuscleAdiposeTissueSegmentation(
                 16, args.muscle_fat_model
             ),
-            muscle_adipose_tissue.MuscleAdiposeTissuePostProcessing(),
-            muscle_adipose_tissue.MuscleAdiposeTissueComputeMetrics(),
-            muscle_adipose_tissue_visualization.MuscleAdiposeTissueVisualizer(),
-            muscle_adipose_tissue.MuscleAdiposeTissueH5Saver(),
-            muscle_adipose_tissue.MuscleAdiposeTissueMetricsSaver(),
+            # muscle_adipose_tissue.MuscleAdiposeTissuePostProcessing(),
+            # muscle_adipose_tissue.MuscleAdiposeTissueComputeMetrics(),
+            # muscle_adipose_tissue_visualization.MuscleAdiposeTissueVisualizer(),
+            # muscle_adipose_tissue.MuscleAdiposeTissueH5Saver(),
+            # muscle_adipose_tissue.MuscleAdiposeTissueMetricsSaver(),
         ]
     )
     return pipeline
@@ -69,11 +69,11 @@ def SpinePipelineBuilder(path, args):
         [
             io.DicomToNifti(path),
             spine.SpineSegmentation(args.spine_model, save=True),
-            orientation.ToCanonical(),
-            spine.SpineComputeROIs(args.spine_model),
-            spine.SpineMetricsSaver(),
-            spine.SpineCoronalSagittalVisualizer(format="png"),
-            spine.SpineReport(format="png"),
+            # orientation.ToCanonical(),
+            # spine.SpineComputeROIs(args.spine_model),
+            # spine.SpineMetricsSaver(),
+            # spine.SpineCoronalSagittalVisualizer(format="png"),
+            # spine.SpineReport(format="png"),
         ]
     )
     return pipeline
@@ -95,9 +95,9 @@ def SpineMuscleAdiposeTissuePipelineBuilder(path, args):
     pipeline = InferencePipeline(
         [
             SpinePipelineBuilder(path, args),
-            spine.SpineFindDicoms(),
+            # spine.SpineFindDicoms(),
             MuscleAdiposeTissuePipelineBuilder(args),
-            spine.SpineMuscleAdiposeTissueReport(),
+            # spine.SpineMuscleAdiposeTissueReport(),
         ]
     )
     return pipeline
