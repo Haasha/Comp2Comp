@@ -42,7 +42,6 @@ docs/_build
 *.cv
 
 # ignore yml file
-*.yml
 *.yaml
 !.github/workflows/format.yml
 
@@ -69,3 +68,5 @@ comp2comp/preferences.yaml
 **/outputs/
 
 **/models/
+
+**.nii.gz
