@@ -132,7 +132,7 @@ def process_3d(args, pipeline_builder):
 
             if not args.save_segmentations:
                 # remove the segmentations folder
-                segmentations_dir = os.path.join(output_dir, "segmentations")
+                segmentations_dir = os.path.join(output_dir, f"segmentations {args.pipeline}")
                 if os.path.exists(segmentations_dir):
                     shutil.rmtree(segmentations_dir)
 

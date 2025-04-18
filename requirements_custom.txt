@@ -1,0 +1,5 @@
+acvl_utils==0.2
+blosc2==2.5.1
+-e git+https://github.com/Haasha/Comp2Comp.git@a414f3fd4ef8b7279db9b880edea9309705d731b#egg=comp2comp
+dicom2nifti==2.5.1
+torch==2.5.0
