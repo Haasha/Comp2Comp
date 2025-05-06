@@ -56,7 +56,7 @@ class SpineSegmentation(InferenceClass):
         seg = totalsegmentator(
             input=os.path.join(self.output_dir_segmentations, "converted_dcm.nii.gz"),
             output=os.path.join(self.output_dir_segmentations, "segmentation.nii"),
-            task_ids=[292],
+            task_ids=[291,292],
             ml=True,
             nr_thr_resamp=1,
             nr_thr_saving=6,
@@ -96,7 +96,7 @@ class SpineSegmentation(InferenceClass):
         # save the seg
         nib.save(
             seg,
-            os.path.join(self.output_dir_segmentations, "spine_seg.nii.gz"),
+            os.path.join(self.output_dir_segmentations, "spine_liver_seg.nii.gz"),
         )
 
         # inference_pipeline.segmentation = nib.load(
